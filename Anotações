@@ -1,0 +1,171 @@
+babel - pega especificação recente ES6+ e transforma para o ES5...converte ao antigo para funcionar em todos os navegadores (ferramenta)
+https://babeljs.io/
+
+
+Performace
+
+tecnica serial - carregamento dos arquivos em cascata(devido ao controle de dependencia)
+tecnica paralela - todos partem do mesmo ponto
+para carregamento de arquivos no browser
+
+async ou defer - adicionar no script src para ativar a tecnica paralela de carregamento de arquivos
+
+<script src="intro.js" async></script>
+<script src="intro.js" defer></script>
+
+async - nao tem controle de dependencia, colocar nesse metodo se nenhum tiver relação um com o outro.
+defer - tem controle de dependencia, colocar esse atributo caso tenha algum arquivo que se relaciona com outro.
+
+preloader/gulp - framework de otimização de carregamento de arquivos js
+https://www.createjs.com/preloadjs
+
+API JS é feita de Armazenamento e Instruçoes
+
+instruções = executa funções (camada que executa as ações)
+armazenamento = armazena dados na memória...variável (camada para guardar dados)
+
+sintaxe literal
+var empresa = "Alura";
+
+sintaxe OOP
+var company = new String("Alura");
+
+Todas as variaveis que criar, poderá colocar a variavel .constructor para saber a origem de sua função.
+
+https://devdocs.io/
+documentação de toda api do js
+
+console.dir(String.prototype);
+Number, Boolean, Object, Date, Math, Array, Regexp... Funções construtoras.
+
+
+Maneiras de criar função:
+declaração de função nomeada
+declaração de função anonima
+
+4 maneiras para se usar uma função anonima
+associar a algo(variaveis...)
+implementar ela num escopo no momento, não será usado em outro lugar
+
+
+Para evitar que o valor do parametro nao de NaN ou undefined, defina como parametro padrao 0
+var sum = function(x = 0,y = 0), porém funciona a partir do ES6
+
+https://www.piazinho.com.br/ - livro de expressões regulares, tem pdf
+https://regex101.com/
+Expressões regulares (Estudar)
+Importante para fazer validação de formulários. comparação filtro mascara.
+
+Metacaracteres
+^ esse símbolo é um ponto de ancoragem, início da linha
+$ fim da linha
+[] lista permitida, dentro dos colchetes são caracteres permitidos para serem digitados. Trabalha com range, podendo colocar um valor inicial e um final, ex: [0-9], para aceitar todos os números, ou [0123456789]
+{} Quantificador, passa um número para quantas vezes quer repetir o padrão. Para número exato, ou com um range podendo ter um valor inicial e um valor final, para caso não souber quantos numeros entrarão. Ex: {2}exato, {1,5}1 até 5, {1,}1 até infinito.
+\c "escaping" serve para trabalhar com caracteres especiais
+? opcional, faz com que se um caractere não for obrigatório, ele permite que funcione com ou sem algum caractere.
+\d apenas números
+[a-z A-Z] ou [A-z] para simplificar
+\w alfanumerico, pega letras e números, de modo abrangente
++ repetidor, não precisa definir um valor inicial e um final, apenas com o simbolo ele repete para pegar todos.
+() grupos, agrupador de informação
+
+
+
+A única forma de definir escopo é usando a função, pois tudo que tem la dentro não pode ser usado fora.
+Dentro do escopo para definir uma variável se faz necessário colocar a palavra "var" antes da variavel para funcionar o controle do escopo. Se não colocar ela se torna uma variável global mesmo estando dentro da função. ***
+
+Closure - filho acessa pai, função local acessa função global
+
+design patterns, seguindo um padrão, para resolver problemas comuns. Maneira de não sujar o objeto window, isolando o código para sanar problemas futuros.
+
+http://blog.caelum.com.br/organize-seu-codigo-javascript-de-maneira-facil/
+Expliação de design pattern
+
+Terminal linux
+
+$ pwd - caminho do diretorio de trabalho (homels folder)
+$ ls - list system, lista tudo que tem dentro da pasta
+$ cd - change directory, mudar de diretorio, ex: cd Desktop/agenda-master/ para acessar o diretorio
+$ clear - limpar a tela do terminal, ou ctrl + l
+$ node -v para saber se tem o node instalado
+$ touch agenda.js criar um arquivo
+$ node para iniciar o console do node
+$ npm -v node package manager, gerenciamento de pacotes do node, faz a gestão dos pacotes
+$ npm init - iniciar o projeto
+$ cat package.json
+$ npm install lite-server --save instalação de um módulo, depois coloca o nome do módulo  front end
+$npm i jsom-server --save instalação de um módulo backend
+
+Depois de apagado a pasta node_modules, em outro pc, abre o terminal e de o comando npm i ele instala todos os modulos que precisa
+
+Para automatizar a inicialização do módulo front end, e não precisar digitar ./node_modules/.bin/lite-server, poderá entrar no package.json e na parte de scripts digitar:
+"front":"lite-server"
+para iniciar ele digitar no terminal:
+npm run front - front
+npm run back - back
+
+https://engenharia.elo7.com.br/jest-testar-seu-codigo-javascript-nunca-foi-tao-facil/
+teste de software - ler*
+
+https://jsonlint.com/ - json validator
+
+postman chrome para testar backend!!! 
+
+Create - post
+retrieve - Get
+update - put
+delete - delete
+
+função model pattern dentro de uma expressão:
+
+(function(){
+    código aqui dentro
+})();
+
+JSON = transforma javascript em texto para o backend ler
+
+DOM = docunent object model (Propriedade do objeto document)
+
+window.document.images = retorna as imagens do html
+
+window.documment.links = retorna todos os links
+
+window.document.forms = retorna todos os formularios
+
+window.document.getElementById("name") = pega apenas o ID do HTML
+
+
+window.document.querySelector("input") = seletor css
+
+window.document.querySelectorAll("input") = seleciona todos
+
+window.document.querySelectorAll(".pure-form") = pega todas as classes
+
+window.document.querySelector("#name") = pega apenas o ID
+
+e.preventDefault(); previne a ação padrao, no caso de um formulário, ele nao vai atualizar a página
+
+ui.fields.forEach(function(){
+            console.log("passou",arguments);
+        }); //arguments verifica os dados que estão sendo passados
+
+var cleanFields = function(){debugger;} = debugger - verifica se ele para na função correta caso der certo
+
+var genericError = function(){debugger;} = debugger - verifica se ele para na função correta caso der erro
+
+//função anonima no JS6 = (paramentro)=>{código}
+
+parametro => código; = caso for apenas uma linha de código
+(parametro,parametro)=>{};
+()=>{};
+
+AJAX = COMUNICAÇÃO DO FRONT COM O BACK
+
+
+isabela machado lima
+
+
+
+
+
+
